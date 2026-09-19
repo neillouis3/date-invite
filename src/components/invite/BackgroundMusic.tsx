@@ -96,7 +96,8 @@ export function BackgroundMusic() {
         width: 240,
         height: 135,
         playerVars: {
-          autoplay: 0,
+          autoplay: 1,
+          mute: 1,
           controls: 0,
           disablekb: 1,
           fs: 0,
@@ -113,11 +114,11 @@ export function BackgroundMusic() {
             if (cancelled) return;
             event.target.setVolume(62);
             playerRef.current = event.target;
+            event.target.playVideo();
+            playingRef.current = true;
+            setPlaying(true);
             if (wantsSoundRef.current) {
               event.target.unMute();
-              event.target.playVideo();
-              playingRef.current = true;
-              setPlaying(true);
             }
           },
           onStateChange: (event) => {
@@ -140,16 +141,26 @@ export function BackgroundMusic() {
   }, []);
 
   useEffect(() => {
-    const onFirstGesture = (event: PointerEvent) => {
+    const unmuteOnGesture = (event: PointerEvent) => {
       if ((event.target as HTMLElement | null)?.closest("[data-music-toggle]")) {
         return;
       }
-      play();
-      window.removeEventListener("pointerdown", onFirstGesture, true);
+      wantsSoundRef.current = true;
+      const player = playerRef.current;
+      if (player) {
+        player.unMute();
+        player.setVolume(62);
+        if (!playingRef.current) {
+          player.playVideo();
+          playingRef.current = true;
+          setPlaying(true);
+        }
+      }
+      window.removeEventListener("pointerdown", unmuteOnGesture, true);
     };
 
-    window.addEventListener("pointerdown", onFirstGesture, true);
-    return () => window.removeEventListener("pointerdown", onFirstGesture, true);
+    window.addEventListener("pointerdown", unmuteOnGesture, true);
+    return () => window.removeEventListener("pointerdown", unmuteOnGesture, true);
   }, []);
 
   return (
