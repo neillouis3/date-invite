@@ -124,19 +124,21 @@ function DetailsScreen() {
       <div className="itenari-wrap animate-fade-up">
         <article className="itenari-paper">
           <div className="itenari-paper-sheet" aria-hidden />
+          <div className="itenari-paper-trim" aria-hidden />
           <div className="itenari-paper-tape" aria-hidden />
           <div className="itenari-paper-body">
-            <header className="itenari-paper-title">
-              <p>{invite.detailsTitle}</p>
+            <header className="itenari-paper-header">
+              <p className="itenari-paper-title">{invite.detailsTitle}</p>
+              <p className="itenari-paper-meta">{invite.detailsDate}</p>
             </header>
-            <div className="itenari-paper-list">
+            <div className="itenari-schedule">
               {invite.details.map((item) =>
                 item.note ? (
                   <div
                     key={`${item.label}-${item.value}`}
-                    className="itenari-paper-section"
+                    className="itenari-block"
                   >
-                    <p className="itenari-paper-section-title">{item.value}</p>
+                    <p className="itenari-line">{item.value}</p>
                     <ul className="itenari-paper-sublist">
                       {noteLines(item.note).map((line) => (
                         <li key={line}>- {line}</li>
@@ -146,7 +148,7 @@ function DetailsScreen() {
                 ) : (
                   <p
                     key={`${item.label}-${item.value}`}
-                    className="itenari-paper-line"
+                    className="itenari-line"
                   >
                     {item.value}
                   </p>

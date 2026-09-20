@@ -43,7 +43,8 @@ export const invite = {
     cta: "see what we will do tomorrow.",
   },
 
-  detailsTitle: "Itenari natin",
+  detailsTitle: "Itinerary",
+  detailsDate: "our day together",
 
   details: [
     {
