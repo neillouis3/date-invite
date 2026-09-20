@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Dancing_Script, Geist, Geist_Mono } from "next/font/google";
+import { Caveat, Dancing_Script, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,6 +18,12 @@ const itineraryHand = Dancing_Script({
   weight: ["500", "600", "700"],
 });
 
+const letterHand = Caveat({
+  variable: "--font-letter-hand",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export const metadata: Metadata = {
   title: "Date with you",
   description: "Happy monthsary saatin. Open when you're ready.",
@@ -33,7 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${itineraryHand.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${itineraryHand.variable} ${letterHand.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-background font-sans text-sm text-foreground">
         {children}

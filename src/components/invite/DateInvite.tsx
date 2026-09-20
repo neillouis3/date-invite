@@ -69,7 +69,7 @@ function EnvelopeScreen({
           className="reject-screen-puppy"
           priority
         />
-        <p className="full-screen-note-text">why not?? huhuhu</p>
+        <p className="full-screen-note-text invite-script">why not?? huhuhu</p>
         <button
           type="button"
           className="full-screen-note-button"
@@ -100,11 +100,22 @@ function AcceptedScreen({ onContinue }: { onContinue: () => void }) {
   return (
     <div className="animate-scale-in relative text-center">
       <HeartBurst />
-      <p className="mx-auto max-w-sm whitespace-pre-line text-sm leading-relaxed text-foreground">
+      <Image
+        src="/happy-cat.gif"
+        alt=""
+        width={280}
+        height={280}
+        unoptimized
+        className="accepted-screen-cat mx-auto"
+        priority
+      />
+      <p className="invite-script mx-auto mt-5 max-w-sm whitespace-pre-line text-foreground">
         {invite.accepted.message}
       </p>
       <div className="mt-8">
-        <PrimaryButton onClick={onContinue}>{invite.accepted.cta}</PrimaryButton>
+        <PrimaryButton className="invite-script" onClick={onContinue}>
+          {invite.accepted.cta}
+        </PrimaryButton>
       </div>
     </div>
   );

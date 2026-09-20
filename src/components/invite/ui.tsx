@@ -17,7 +17,7 @@ export function PrimaryButton({
   return (
     <button
       type="button"
-      className={`inline-flex min-h-10 w-full items-center justify-center rounded-lg bg-accent px-4 text-sm font-medium text-white transition hover:bg-[#c91827] active:scale-[0.98] disabled:opacity-50 ${className}`}
+      className={`inline-flex min-h-10 w-full items-center justify-center rounded-lg bg-accent px-4 text-base font-semibold text-white transition hover:bg-[#c91827] active:scale-[0.98] disabled:opacity-50 ${className}`}
       {...props}
     >
       {children}

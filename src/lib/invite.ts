@@ -22,9 +22,10 @@ export const invite = {
 
   envelope: {
     paragraphs: [
-      "Hi babyy. Happy 19th monthsary saatin baby. I love you so much.",
-      "I want to invite you to a date today the whole day hehe.",
+      "Hi babyy. Happy 19th monthsary saatin ulit baby. I love you so much.",
+      "Matagal pa ako makauwi jan. Kaya I want to invite you to a date today the whole day hehe.",
       "Is it okiii baby?",
+      "Uhm, it's okay din if you don't want. 🥺",
     ],
   },
 
@@ -39,8 +40,8 @@ export const invite = {
 
   accepted: {
     message:
-      "Yeyyy. Thank you baby.\nMag spend time tayo, i'm so excited hehehe. All on me ;)",
-    cta: "see what we will do tomorrow.",
+      "Yeyyy. Thank youuu baby.\nI'm so excited to spend time with you. All on me ;)",
+    cta: "ano gagawin natin mamaya",
   },
 
   detailsTitle: "Itinerary",
